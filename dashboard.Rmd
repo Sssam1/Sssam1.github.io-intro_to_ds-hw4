@@ -4,33 +4,103 @@ output:
   flexdashboard::flex_dashboard:
     orientation: columns
     vertical_layout: fill
+    theme: sandstone
 ---
 
 ```{r setup, include=FALSE}
 library(flexdashboard)
+library(tidyverse)
+library(plotly)
+library(p8105.datasets)
+```
+
+```{r}
+# import the instacart dataset
+data("rest_inspec")
+```
+
+```{r}
+# clean data to only keep the variables we need
+# look at restaurants in Manhattan with some Asian cuisines
+# only keep the highest score if a restaurant was graded for more than one year
+rest_inspec = rest_inspec |> 
+  select(dba, boro, cuisine_description, score, grade, grade_date, latitude, longitude) |>
+  rename(name = dba) |> 
+  filter(
+    !is.na(score), 
+    !is.na(grade_date),
+    !latitude == 0,
+    !longitude == 0,
+    cuisine_description %in% c("Asian", "Thai", "Vietnamese/Cambodian/Malaysia", "Chinese", "Japanese", "Korean", "Filipino", "Indonesian", "Bangladeshi", "Chinese/Japanese", "Indian"),
+    boro == "Manhattan") |> 
+  distinct(name, grade_date, .keep_all = TRUE) |> 
+  group_by(name) |> 
+  slice_max(order_by = score, n = 1, with_ties = FALSE) |> 
+  ungroup()
 ```
 
 Column {data-width=650}
 -----------------------------------------------------------------------
+go back to [homepage](index.html)
 
-### Chart A
+### Scatter Plot of Location of Asian Restaurants in Manhattan
 
 ```{r}
-
+# look at the scatter plot of locations of the selected restaurant
+rest_inspec |>
+  mutate(text_label = str_c("Name: ", name, "\nScore: ", score, "\nGrade: ", grade)) |> 
+  plot_ly(
+    x = ~latitude, y = ~longitude, 
+    color = ~score, type = "scatter", mode = "markers", 
+    colors = "viridis", text = ~text_label, alpha = 0.5) |> 
+  layout(
+    title = "Location of Asian Restaurants in Manhattan",
+    xaxis = list(title = "Latitude"),
+    yaxis = list(title = "Longitude"))
 ```
 
 Column {data-width=350}
 -----------------------------------------------------------------------
 
-### Chart B
+### Box plot of Score Distribution by Cuisine Type
 
 ```{r}
-
+# look at the score for different cuisines in a boxplot
+rest_inspec |> 
+  mutate(cuisine_description = fct_reorder(cuisine_description, score),
+         cuisine_description = recode(cuisine_description,
+                                      "Vietnamese/Cambodian/Malaysia" = "Viet/Camb/Malay")) |> 
+  plot_ly(
+    x = ~cuisine_description, y = ~score, 
+    color = ~cuisine_description, type = "box", 
+    colors = "viridis") |> 
+  layout(
+    title = "Score Distribution by Cuisine Type",
+    xaxis = list(title = "Cuisine Type", tickangle = -45, tickfont = list(size = 10)),
+    yaxis = list(title = "Score"),
+    showlegend = FALSE)
 ```
 
-### Chart C
+### Bar Graph of Grade Distribution by Cuisine Type
 
 ```{r}
-
+# look at number of restaurants in each grade for selected cuisines
+rest_inspec |> 
+  mutate(
+    cuisine_description = fct_reorder(cuisine_description, score),
+    cuisine_description = recode(cuisine_description,
+                                      "Vietnamese/Cambodian/Malaysia" = "Viet/Camb/Malay"),
+    grade = factor(grade,
+                   levels = c("A", "B", "C", "P", "Z"),
+                   labels = c("A", "B", "C", "Reopening", "Pending"))) |> 
+  count(cuisine_description, grade) |> 
+  plot_ly(
+    x = ~cuisine_description, y = ~n, 
+    color = ~grade, type = "bar",
+    colors = "viridis") |> 
+  layout(
+    title = "Grade Distribution by Cuisine Type",
+    xaxis = list(title = "Cuisine Type", tickangle = -45, tickfont = list(size = 10)),
+    yaxis = list(title = "Number of Restaurants"),
+    barmode = "stack")
 ```
-
