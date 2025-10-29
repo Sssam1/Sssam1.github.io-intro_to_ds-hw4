@@ -1,0 +1,67 @@
+---
+title: "Samantha Han Resume"
+output: html_document
+---
+
+---
+
+### EDUCATION
+##### **New York University**
+
+*09/2018 - 12/2022:* Double Major in **Psychology** and **Computer Science**
+
+##### **Columbia University**
+
+*09/2025 - Present:* **Biostatistics**, concentration in Theory and Methods
+
+---
+
+### RESEARCH EXPERIENCE
+##### **New York State Psychiatric Institute**
+
+01/2023 - 06/2025: *Clinical Research Assistant*
+
+- Coordinate and administer study procedures with patients with eating disorders and healthy volunteers, including fMRI scans, behavioral tasks, interviews, and Multi-Item Meals
+- Manage databases and create REDCap projects to support studies and regulatory compliance
+- Conduct data cleaning and analyses for multiple studies; contribute to the methods and results sections of manuscripts, resulting in paper publications
+- Use Python to upgrade, maintain, and disseminate study computer tasks across sites
+Conduct psychiatric and cognitive assessments (Structured Clinical Interviews for DSM-5 (SCID-5), Yale-Brown Cornell Eating Disorder Scale (YBC-EDS), Eating Disorders Assessment (EDA-5), Wechsler Abbreviated Scale of Intelligence (WASI)) and semi-structured phone interviews with patients and healthy volunteers
+- Coordinate with clinicians, patients, families, and providers to facilitate inpatient admissions
+- Lead four study meetings to discuss study development, participant tracking, and administrative updates
+- Manage IRB submissions and communications on multiple platforms (e.g., Advarra, OneAegis), ensuring compliance with regulatory requirements for six studies
+
+##### **The Nathan S. Kline Institute for Psychiatric Research**
+
+06/2022 - 12/2022: *Research Assistant*
+
+- Explored impact of maternal separation on cognitive abilities focusing on prefrontal cortex
+- Administered experimental procedures with a colony of 90+ mice and managed their care
+- Collected and coded behavioral data assesing cognitive flexibility and working memory
+- Utilized confocal microscopy to identify GFP expression within dopaminergic pathway
+- Conducted wet-lab protocols, including Western Blotting and PCR, for mouse genotyping
+
+---
+
+### PROFESSIONAL EXPERIENCE
+
+##### **Gese Technology Co., Ltd.**
+
+08/2021 - 12/2021: *Intern Researcher*
+
+- Collaborated with psychologists and clinicians to develop and upgrade a phone-based digital mental health intervention program, targeting maladaptive mood and eating behaviors
+- Integrated approaches, such as self-compassion, into the intervention framework by conducting literature reviews on treatment strategies for eating disorders
+- Compiled survey packet to assess intervention effectiveness by synthesizing psychometric scales related to factors affecting eating behaviors, such as the Body Appreciation Scale-2
+- Wrote score interpretations and specifications to provide participants with feedback, helping them track progress and gain insight from questionnaire results
+- Composed a report on the use of Citalopram for treating depression, covering its applications, precautions, and demographic considerations
+
+##### **New York University**
+
+01/2021 - 05/2021: *Teaching Assistant*
+
+- Taught weekly recitation class for undergraduate Introduction to Psychology (29 students)
+- Assigned and graded weekly writing assignments and provided individual feedback
+- Held weekly office hours to address students’ academic concerns and support their learning
+
+---
+
+go back to [homepage](index.html)

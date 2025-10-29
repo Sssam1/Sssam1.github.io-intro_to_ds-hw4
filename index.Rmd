@@ -1,0 +1,36 @@
+---
+title: "Sam's Personal Website"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+This is the personal website of Samantha Han.
+
+She is currently a student @ [Columbia University](https://www.publichealth.columbia.edu/). 
+
+## She Loves Psychology
+
+You can find out more about her academic and professional experience [here](resume.html).
+
+## She Loves Cat
+
+Here are some pictures of her cats.
+
+![](images/banban.jpeg){width=60%}
+
+![](images/maimai.jpeg){width=60%}
+
+## She Makes Plots
+
+Look at some [plots](dashboard.html) she made using the [Instacart](https://p8105.com/dataset_instacart.html) dataset.
+
+Instacart is an online grocery service that allows you to shop online from local stores. In New York City, partner stores include Whole Foods, Fairway, and The Food Emporium.
+
+
+
+
+
+
+
