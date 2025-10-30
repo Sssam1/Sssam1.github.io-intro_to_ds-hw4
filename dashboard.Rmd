@@ -62,7 +62,7 @@ rest_inspec |>
 Column {data-width=350}
 -----------------------------------------------------------------------
 
-### Box plot of Score Distribution by Cuisine Type
+### Box Plot of Score Distribution by Cuisine Type
 
 ```{r}
 # look at the score for different cuisines in a boxplot
